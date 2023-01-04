@@ -54,7 +54,7 @@ classifier = sklearn.svm.SVC()
 classifier.fit(features, labels)
 
 # Load the new image and extract features from it
-new_image = cv2.imread('image1.png')
+new_image = cv2.imread('image4.png')
 new_image = cv2.resize(new_image, (300, 300))
 new_image = np.array(new_image)
 new_features = extract_features(new_image)
