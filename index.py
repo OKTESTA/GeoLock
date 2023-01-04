@@ -18,6 +18,9 @@ def extract_features(image):
 image1 = cv2.imread('image1.png')
 image2 = cv2.imread('image2.png')
 image3 = cv2.imread('image3.png')
+image1 = np.array(image1)
+image2 = np.array(image2)
+image3 = np.array(image3)
 images = np.array([image1, image2, image3])
 
 # Create a list of labels corresponding to each image
