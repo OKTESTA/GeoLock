@@ -25,9 +25,17 @@ if image2 is None:
 if image3 is None:
   print("Failed")
 
+# Make sure all images have the same shape
+image1 = cv2.resize(image1, (300, 300))
+image2 = cv2.resize(image2, (300, 300))
+image3 = cv2.resize(image3, (300, 300))
+
+# Convert the images to numpy arrays
 image1 = np.array(image1)
 image2 = np.array(image2)
 image3 = np.array(image3)
+
+# Create a numpy array of the images
 images = np.array([image1, image2, image3])
 
 # Create a list of labels corresponding to each image
