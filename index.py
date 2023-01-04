@@ -18,6 +18,13 @@ def extract_features(image):
 image1 = cv2.imread('image1.png')
 image2 = cv2.imread('image2.png')
 image3 = cv2.imread('image3.png')
+if image1 is None:
+  print("Failed to load image1.jpg")
+if image2 is None:
+  print("Failed to load image2.jpg")
+if image3 is None:
+  print("Failed")
+
 image1 = np.array(image1)
 image2 = np.array(image2)
 image3 = np.array(image3)
