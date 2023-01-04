@@ -1,5 +1,6 @@
 from sklearn.feature_extraction import image
-import sklearn from sklearn import svm
+import sklearn
+from sklearn import svm
 import numpy as np
 import cv2
 
