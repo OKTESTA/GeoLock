@@ -15,9 +15,9 @@ def extract_features(image):
   return histogram.flatten()
 
 # Load the images as a numpy array
-image1 = image.imread('image1.jpg')
-image2 = image.imread('image2.jpg')
-image3 = image.imread('image3.jpg')
+image1 = cv2.imread('image1.jpg')
+image2 = cv2.imread('image2.jpg')
+image3 = cv2.imread('image3.jpg')
 images = np.array([image1, image2, image3])
 
 # Create a list of labels corresponding to each image
