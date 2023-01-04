@@ -58,7 +58,7 @@ new_image = cv2.imread('image1.png')
 new_image = cv2.resize(new_image, (300, 300))
 new_image = np.array(new_image)
 new_features = extract_features(new_image)
-
+new_features = new_features.reshape(1, -1)
 # Use the trained classifier to predict the label for the new image
 prediction = classifier.predict(new_features)
 print(prediction)
