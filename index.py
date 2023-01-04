@@ -1,5 +1,18 @@
 from sklearn.feature_extraction import image
 import numpy as np
+import cv2
+
+def extract_features(image):
+  # Convert the image to the HSV color space
+  image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+  # Calculate the color histogram
+  histogram = cv2.calcHist([image], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
+
+  # Normalize the histogram
+  cv2.normalize(histogram, histogram)
+
+  return histogram.flatten()
 
 # Load the images as a numpy array
 image1 = image.imread('image1.jpg')
@@ -8,7 +21,7 @@ image3 = image.imread('image3.jpg')
 images = np.array([image1, image2, image3])
 
 # Create a list of labels corresponding to each image
-labels = np.array(['cat', 'dog', 'bird'])
+labels = np.array(['NA', 'SA', 'AS'])
 
 # Extract features from the images
 features = []
