@@ -15,9 +15,9 @@ def extract_features(image):
   return histogram.flatten()
 
 # Load the images as a numpy array
-image1 = cv2.imread('image1.jpg')
-image2 = cv2.imread('image2.jpg')
-image3 = cv2.imread('image3.jpg')
+image1 = cv2.imread('image1.png')
+image2 = cv2.imread('image2.png')
+image3 = cv2.imread('image3.png')
 images = np.array([image1, image2, image3])
 
 # Create a list of labels corresponding to each image
@@ -34,7 +34,7 @@ classifier = sklearn.svm.SVC()
 classifier.fit(features, labels)
 
 # Load the new image and extract features from it
-new_image = image.imread('image4.jpg')
+new_image = image.imread('image1.png')
 new_features = extract_features(new_image)
 
 # Use the trained classifier to predict the label for the new image
