@@ -26,7 +26,7 @@ labels = np.array(['NA', 'SA', 'AS'])
 # Extract features from the images
 features = []
 for i in range(len(images)):
-  features.append(image.extract_features(images[i]))
+  features.append(extract_features(images[i]))
 features = np.array(features)
 
 # Create a classifier and train it using the extracted features and labels
@@ -35,7 +35,7 @@ classifier.fit(features, labels)
 
 # Load the new image and extract features from it
 new_image = image.imread('image4.jpg')
-new_features = image.extract_features(new_image)
+new_features = extract_features(new_image)
 
 # Use the trained classifier to predict the label for the new image
 prediction = classifier.predict(new_features)
