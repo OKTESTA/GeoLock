@@ -6,22 +6,22 @@ import cv2
 import os
 
 def extract_features(image):
-  normal = cv2.normalize(image, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
+  normal = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
   edges = cv2.Canny(normal, 50, 100)
   cv2.imwrite('ok.png', edges)
   return edges
 
 NAFiles = []
 for file in os.listdir('NA'):
-    NAFiles.append(cv2.imread('NA/' + file,cv2.IMREAD_GRAYSCALE))
+    NAFiles.append(cv2.imread('NA/' + file))
 
 SAFiles = []
 for file in os.listdir('SA'):
-    SAFiles.append(cv2.imread('SA/' + file, cv2.IMREAD_GRAYSCALE))
+    SAFiles.append(cv2.imread('SA/' + file))
 
 ASFiles = []
 for file in os.listdir('AS'):
-    ASFiles.append(cv2.imread('AS/' + file, cv2.IMREAD_GRAYSCALE))
+    ASFiles.append(cv2.imread('AS/' + file))
 
 for file in range(len(NAFiles)):
     NAFiles[file] = cv2.resize(NAFiles[file], (300, 300))
