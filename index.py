@@ -74,7 +74,7 @@ for file in range(len(ASFiles)):
   
 # Create a classifier and train it using the extracted features and labels
 classifier = sklearn.svm.SVC()
-classifier.fit(features, labels)
+classifier.fit(images, labels)
 
 # Load the new image and extract features from it
 new_image = cv2.imread('image4.png')
