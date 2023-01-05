@@ -28,7 +28,7 @@ for file in os.listdir('SA'):
 ASFiles = []
 for file in os.listdir('AS'):
     ASFiles.append(cv2.imread('AS/' + file))
-print(len(SAFiles))
+print(SAFiles)
 for file in range(len(NAFiles)):
     NAFiles[file] = cv2.resize(NAFiles[file], (300, 300))
 
