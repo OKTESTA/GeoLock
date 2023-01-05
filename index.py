@@ -20,28 +20,31 @@ def extract_features(image):
 image1 = cv2.imread('image1.png')
 image2 = cv2.imread('image2.png')
 image3 = cv2.imread('image3.png')
-if image1 is None:
-  print("Failed to load image1.jpg")
-if image2 is None:
-  print("Failed to load image2.jpg")
-if image3 is None:
-  print("Failed")
+image11 = cv2.imread('image1.1.png')
+image21 = cv2.imread('image2.1.png')
+image21 = cv2.imread('image3.1.png')
 
 # Make sure all images have the same shape
 image1 = cv2.resize(image1, (300, 300))
 image2 = cv2.resize(image2, (300, 300))
 image3 = cv2.resize(image3, (300, 300))
+image11 = cv2.resize(image11, (300, 300))
+image21 = cv2.resize(image21, (300, 300))
+image31 = cv2.resize(image31, (300, 300))
 
 # Convert the images to numpy arrays
 image1 = np.array(image1)
 image2 = np.array(image2)
 image3 = np.array(image3)
+image11 = np.array(image11)
+image21 = np.array(image21)
+image31 = np.array(image31)
 
 # Create a numpy array of the images
-images = np.array([image1, image2, image3])
+images = np.array([image1, image2, image3, image11, image21, image31])
 
 # Create a list of labels corresponding to each image
-labels = np.array(['NA', 'SA', 'AS'])
+labels = np.array(['NA', 'SA', 'AS', 'NA', 'SA', 'AS'])
 
 # Extract features from the images
 features = []
