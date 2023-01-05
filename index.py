@@ -19,15 +19,15 @@ def extract_features(image):
 
 NAFiles = []
 for file in os.listdir('NA'):
-    NAFiles.append(cv2.imread(file))
+    NAFiles.append(cv2.imread('/NA/' + file))
 
 SAFiles = []
 for file in os.listdir('SA'):
-    SAFiles.append(cv2.imread(file))
+    SAFiles.append(cv2.imread('/SA/' + file))
 
 ASFiles = []
 for file in os.listdir('AS'):
-    ASFiles.append(cv2.imread(file))
+    ASFiles.append(cv2.imread('/AS/' + file))
 
 for file in range(len(NAFiles)):
     NAFiles[file] = cv2.resize(NAFiles[file], (300, 300))
