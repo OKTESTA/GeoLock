@@ -61,6 +61,8 @@ for file in range(len(ASFiles)):
 # Create a classifier and train it using the extracted features and labels
 classifier = sklearn.svm.SVC()
 images = images.reshape(1, -1)
+print(len(images))
+print(len(labels))
 classifier.fit(images, labels)
 
 # Load the new image and extract features from it
