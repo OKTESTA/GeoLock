@@ -5,13 +5,6 @@ import numpy as np
 import cv2
 import os
 
-def extract_features(image):
-  print(image.dtype)
-  normal = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-  edges = cv2.Canny(normal, 50, 100)
-  cv2.imwrite('ok.png', edges)
-  return edges
-
 NAFiles = []
 for file in os.listdir('NA'):
     NAFiles.append(cv2.imread('NA/' + file))
@@ -82,7 +75,6 @@ classifier.fit(images, labels)
 new_image = cv2.imread('image4.png')
 new_image = cv2.resize(new_image, (300, 300))
 new_image = np.array(new_image)
-new_features = extract_features(new_image)
 new_features = new_features.reshape(1, -1)
 # Use the trained classifier to predict the label for the new image
 prediction = classifier.predict(new_features)
