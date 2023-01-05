@@ -58,11 +58,11 @@ for file in ASFiles:
 labels = np.array([])
 
 for file in range(len(NAFiles)):
-  labels.append('NA')
+  np.append(labels, 'NA')
 for file in range(len(SAFiles)):
-  labels.append('SA')
+  np.append(labels, 'SA')
 for file in range(len(ASFiles)):
-  labels.append('AS')
+  np.append(labels, 'AS')
 
 # Extract features from the images
 for a in range(len(images)):
