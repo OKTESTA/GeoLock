@@ -6,16 +6,10 @@ import cv2
 import os
 
 def extract_features(image):
-  # Convert the image to the HSV color space
-  image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-
-  # Calculate the color histogram
-  histogram = cv2.calcHist([image], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
-
-  # Normalize the histogram
-  cv2.normalize(histogram, histogram)
-
-  return histogram.flatten()
+  gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+  # Apply Canny edge detection
+  edges = cv2.Canny(gray, 50, 100)
+  return edges
 
 NAFiles = []
 for file in os.listdir('NA'):
@@ -60,16 +54,19 @@ for file in SAFiles:
 for file in ASFiles:
     images = np.append(images, file)
 
-print(images)
 # Create a list of labels corresponding to each image
 labels = np.array([])
 
+for file in range(len(NAFiles)):
+  labels.append('NA')
+for file in range(len(SAFiles)):
+  labels.append('SA')
+for file in range(len(ASFiles)):
+  labels.append('AS')
 
 # Extract features from the images
-features = []
-for i in range(len(images)):
-  features.append(extract_features(images[i]))
-features = np.array(features)
+for a in range(len(images)):
+  images[a] = extract_features(images[a])
 
 # Create a classifier and train it using the extracted features and labels
 classifier = sklearn.svm.SVC()
