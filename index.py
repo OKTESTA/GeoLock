@@ -6,9 +6,8 @@ import cv2
 import os
 
 def extract_features(image):
-  gray = cv2.cvtColor(image, cv2.COLOR_GRAY2GRAY)
   # Apply Canny edge detection
-  edges = cv2.Canny(gray, 50, 100)
+  edges = cv2.Canny(image, 50, 100)
   return edges
 
 NAFiles = []
