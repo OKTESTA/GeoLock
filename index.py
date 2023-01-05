@@ -25,15 +25,6 @@ for file in range(len(SAFiles)):
 
 for file in range(len(ASFiles)):
     ASFiles[file] = cv2.resize(ASFiles[file], (300, 300))
-
-for file in range(len(NAFiles)):
-  NAFiles[file] = extract_features(file)
-
-for file in range(len(SAFiles)):
-  SAFiles[file] = extract_features(file)
-  
-for file in range(len(ASFiles)):
-  ASFiles[file] = extract_features(file)
     
 # Convert the images to numpy arrays
 for file in range(len(NAFiles)):
