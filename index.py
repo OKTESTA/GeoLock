@@ -3,6 +3,7 @@ import sklearn
 from sklearn import svm
 import numpy as np
 import cv2
+import os
 
 def extract_features(image):
   # Convert the image to the HSV color space
@@ -16,35 +17,53 @@ def extract_features(image):
 
   return histogram.flatten()
 
-# Load the images as a numpy array
-image1 = cv2.imread('image1.png')
-image2 = cv2.imread('image2.png')
-image3 = cv2.imread('image3.png')
-image11 = cv2.imread('image1.1.png')
-image21 = cv2.imread('image2.1.png')
-image31 = cv2.imread('image3.1.png')
+NAFiles = []
+for file in os.listdir('/NA'):
+    NAFiles.append(cv2.imread(file))
 
-# Make sure all images have the same shape
-image1 = cv2.resize(image1, (300, 300))
-image2 = cv2.resize(image2, (300, 300))
-image3 = cv2.resize(image3, (300, 300))
-image11 = cv2.resize(image11, (300, 300))
-image21 = cv2.resize(image21, (300, 300))
-image31 = cv2.resize(image31, (300, 300))
+SAFiles = []
+for file in os.listdir('/SA'):
+    SAFiles.append(cv2.imread(file))
+
+ASFiles = []
+for file in os.listdir('/AS'):
+    ASFiles.append(cv2.imread(file))
+
+for file in range(len(NAFiles)):
+    NAFiles[file] = cv2.resize(NAFiles[file], (300, 300))
+
+for file in range(len(SAFiles)):
+    SAFiles[file] = cv2.resize(SAFiles[file], (300, 300))
+
+for file in range(len(ASFiles)):
+    ASFiles[file] = cv2.resize(ASFiles[file], (300, 300))
 
 # Convert the images to numpy arrays
-image1 = np.array(image1)
-image2 = np.array(image2)
-image3 = np.array(image3)
-image11 = np.array(image11)
-image21 = np.array(image21)
-image31 = np.array(image31)
+for file in range(len(NAFiles)):
+    NAFiles[file] = np.array(NAFiles[file])
+
+for file in range(len(SAFiles)):
+    SAFiles[file] = np.array(SAFiles[file])
+
+for file in range(len(ASFiles)):
+    ASFiles[file] = np.array(ASFiles[file])
 
 # Create a numpy array of the images
-images = np.array([image1, image2, image3, image11, image21, image31])
+images = np.array([])
 
+for file in NAFiles:
+    images.append(file)
+
+for file in SAFiles:
+    images.append(file)
+
+for file in ASFiles:
+    images.append(file)
+
+print(images)
 # Create a list of labels corresponding to each image
-labels = np.array(['NA', 'SA', 'AS', 'NA', 'SA', 'AS'])
+labels = np.array([])
+
 
 # Extract features from the images
 features = []
