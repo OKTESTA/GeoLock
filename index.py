@@ -6,8 +6,8 @@ import cv2
 import os
 
 def extract_features(image):
-  # Apply Canny edge detection
-  edges = cv2.Canny(image, 50, 100)
+  normal = cv2.normalize(image, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
+  edges = cv2.Canny(normal, 50, 100)
   return edges
 
 NAFiles = []
