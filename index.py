@@ -22,7 +22,7 @@ image2 = cv2.imread('image2.png')
 image3 = cv2.imread('image3.png')
 image11 = cv2.imread('image1.1.png')
 image21 = cv2.imread('image2.1.png')
-image21 = cv2.imread('image3.1.png')
+image31 = cv2.imread('image3.1.png')
 
 # Make sure all images have the same shape
 image1 = cv2.resize(image1, (300, 300))
