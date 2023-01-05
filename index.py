@@ -22,7 +22,7 @@ for file in os.listdir('SA'):
 ASFiles = []
 for file in os.listdir('AS'):
     ASFiles.append(cv2.imread('AS/' + file))
-print(NAFiles)
+
 for file in range(len(NAFiles)):
     NAFiles[file] = cv2.resize(NAFiles[file], (300, 300))
 
@@ -32,6 +32,15 @@ for file in range(len(SAFiles)):
 for file in range(len(ASFiles)):
     ASFiles[file] = cv2.resize(ASFiles[file], (300, 300))
 
+for file in range(len(NAFiles)):
+  NAFiles[file] = extract_features(file)
+
+for file in range(len(SAFiles)):
+  SAFiles[file] = extract_features(file)
+  
+for file in range(len(ASFiles)):
+  ASFiles[file] = extract_features(file)
+    
 # Convert the images to numpy arrays
 for file in range(len(NAFiles)):
     NAFiles[file] = np.array(NAFiles[file])
@@ -63,11 +72,7 @@ for file in range(len(SAFiles)):
   np.append(labels, 'SA')
 for file in range(len(ASFiles)):
   np.append(labels, 'AS')
-
-# Extract features from the images
-for a in range(len(images)):
-  images[a] = extract_features(images[a])
-
+  
 # Create a classifier and train it using the extracted features and labels
 classifier = sklearn.svm.SVC()
 classifier.fit(features, labels)
