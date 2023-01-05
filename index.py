@@ -6,22 +6,22 @@ import cv2
 import os
 
 def extract_features(image):
-  gray = cv2.cvtColor(image)
+  gray = cv2.cvtColor(image, cv2.COLOR_GRAY2GRAY)
   # Apply Canny edge detection
   edges = cv2.Canny(gray, 50, 100)
   return edges
 
 NAFiles = []
 for file in os.listdir('NA'):
-    NAFiles.append(cv2.imread('NA/' + file))
+    NAFiles.append(cv2.imread('NA/' + file), cv2.IMREAD_GRAYSCALE)
 
 SAFiles = []
 for file in os.listdir('SA'):
-    SAFiles.append(cv2.imread('SA/' + file))
+    SAFiles.append(cv2.imread('SA/' + file), cv2.IMREAD_GRAYSCALE)
 
 ASFiles = []
 for file in os.listdir('AS'):
-    ASFiles.append(cv2.imread('AS/' + file))
+    ASFiles.append(cv2.imread('AS/' + file), cv2.IMREAD_GRAYSCALE)
 
 for file in range(len(NAFiles)):
     NAFiles[file] = cv2.resize(NAFiles[file], (300, 300))
