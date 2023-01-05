@@ -6,6 +6,7 @@ import cv2
 import os
 
 def extract_features(image):
+  print(image.dtype)
   normal = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
   edges = cv2.Canny(normal, 50, 100)
   cv2.imwrite('ok.png', edges)
