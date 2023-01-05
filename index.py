@@ -18,15 +18,15 @@ def extract_features(image):
   return histogram.flatten()
 
 NAFiles = []
-for file in os.listdir('/NA/'):
+for file in os.listdir('NA'):
     NAFiles.append(cv2.imread(file))
 
 SAFiles = []
-for file in os.listdir('/SA/'):
+for file in os.listdir('SA'):
     SAFiles.append(cv2.imread(file))
 
 ASFiles = []
-for file in os.listdir('/AS/'):
+for file in os.listdir('AS'):
     ASFiles.append(cv2.imread(file))
 
 for file in range(len(NAFiles)):
