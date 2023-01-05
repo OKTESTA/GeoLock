@@ -52,13 +52,13 @@ for file in range(len(ASFiles)):
 images = np.array([])
 
 for file in NAFiles:
-    images.append(file)
+    images = np.append(images, file)
 
 for file in SAFiles:
-    images.append(file)
+   images = np.append(images, file)
 
 for file in ASFiles:
-    images.append(file)
+    images = np.append(images, file)
 
 print(images)
 # Create a list of labels corresponding to each image
